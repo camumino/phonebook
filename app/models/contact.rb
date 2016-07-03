@@ -3,5 +3,5 @@ class Contact < ActiveRecord::Base
 
   validates :name, :surname, :email, :user, presence: true
   validates :email, uniqueness: true
-  validates_inclusion_of :type, :in => 0..2
+  validates_inclusion_of :contact_type, :in => 0..2
 end

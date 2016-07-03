@@ -23,7 +23,7 @@ RSpec.describe Contact, type: :model do
   end
 
   it "is not valid without type" do
-    contact = build(:contact, type: nil)
+    contact = build(:contact, contact_type: nil)
     expect(contact).not_to be_valid
   end
 
