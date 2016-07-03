@@ -22,11 +22,21 @@ RSpec.describe Contact, type: :model do
     expect(contact).not_to be_valid
   end
 
-    it "is not valid with existent email" do
+  it "is not valid without type" do
+    contact = build(:contact, type: nil)
+    expect(contact).not_to be_valid
+  end
+
+  it "is not valid without user" do
+    contact = build(:contact, user: nil)
+    expect(contact).not_to be_valid
+  end
+  
+  it "is not valid with existent email" do
     contact = create(:contact, email: "email@example.com")
     contact2 = build(:contact, email: "email@example.com")
 
     expect(contact2).not_to be_valid
-  end  
+  end
 
 end

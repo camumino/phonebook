@@ -7,6 +7,8 @@ gem 'rails', '4.2.5.2'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -38,6 +40,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 3.4'
+  gem 'better_errors'
+  gem 'letter_opener'
+  gem 'table_print'
+
+  gem 'xray-rails'
 end
 
 gem 'factory_girl_rails'

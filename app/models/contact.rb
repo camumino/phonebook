@@ -1,6 +1,7 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
 
-  validates :name, :surname, :email, presence: true
+  validates :name, :surname, :email, :user, presence: true
   validates :email, uniqueness: true
+  validates_inclusion_of :type, :in => 0..2
 end
