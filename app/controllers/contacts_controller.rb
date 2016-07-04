@@ -25,8 +25,6 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    debugger
-
     @contact = current_user.contacts.new(contact_params)
 
     respond_to do |format|

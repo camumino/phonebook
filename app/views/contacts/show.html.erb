@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+
+<%= image_tag @contact.avatar.url, :class => "img-responsive" %>
+
 <p>
-  <strong>Name:</strong>
+  <strong>Nombre:</strong>
   <%= @contact.name %>
 </p>
 
 <p>
-  <strong>Surname:</strong>
+  <strong>Apellidos:</strong>
   <%= @contact.surname %>
 </p>
 
@@ -16,9 +19,36 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @contact.contact_type %>
+  <strong>Tipo de contacto:</strong>
+  <%= Contact::CONTACT_TYPES[@contact.contact_type] %>
 </p>
+
+
+
+<h2>Contactos</h2>
+
+
+<table class="table table-bordered">
+  <thead>
+    <th>#</th>
+    <th>Numero</th>
+    <th>Acciones</th>
+  </thead>
+
+  <tbody>
+    <% @contact.phones.each_with_index do |phone, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= phone.number %></td>
+        <td><%= link_to 'Editar', edit_contact_phone_path(phone.contact, phone) %> | <%= link_to 'Eliminar', contact_phone_path(phone.contact, phone), method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Añadiro numero', new_contact_phone_path(@contact) %>
+
+<br>
 
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>

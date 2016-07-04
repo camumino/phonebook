@@ -7,7 +7,7 @@
     <th>Nombre</th>
     <th>Apellidos</th>
     <th>Email</th>
-    <th>Tipo</th>
+    <th>Tipo de contacto</th>
     <th>Acciones</th>
   </thead>
 
@@ -17,7 +17,7 @@
         <td><%= contact.name %></td>
         <td><%= contact.surname %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.contact_type %></td>
+        <td><%= Contact::CONTACT_TYPES[contact.contact_type] %></td>
         <td><%= link_to 'Ver', contact %> | <%= link_to 'Editar', edit_contact_path(contact) %> | <%= link_to 'Eliminar', contact, method: :delete, data: { confirm: '¿Esta seguro?' } %></td>
       </tr>
     <% end %>
